@@ -7,9 +7,9 @@
       {{ .Title }}
       {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
     </h1>
-    {{- if .Description }}
+    {{- if .Params.postDescription }}
     <div class="post-description">
-      {{ .Description | markdownify }}
+      {{ .Params.postDescription | markdownify }}
     </div>
     {{- end }}
     {{- if not (.Param "hideMeta") }}

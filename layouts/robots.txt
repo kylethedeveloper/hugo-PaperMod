@@ -1,7 +1,7 @@
 User-agent: *
-{{- if hugo.IsProduction | or (eq site.Params.env "production") }}
+{{- if and (hugo.IsProduction | or (eq site.Params.env "production")) (ne site.Params.robotsDisallow true) }}
 Disallow:
+Sitemap: {{ "sitemap.xml" | absURL }}
 {{- else }}
 Disallow: /
 {{- end }}
-Sitemap: {{ "sitemap.xml" | absURL }}
